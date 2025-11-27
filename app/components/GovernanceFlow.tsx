@@ -12,6 +12,7 @@ import {
   Connection,
   Edge,
   Node,
+  ReactFlowProvider,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 
@@ -348,27 +349,29 @@ export default function GovernanceFlow() {
   );
 
   return (
-    <div className="w-full h-[800px] bg-slate-50/50 border rounded-2xl overflow-hidden shadow-2xl backdrop-blur-sm">
-      <ReactFlow
-        nodes={nodes}
-        edges={edges}
-        onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
-        onConnect={onConnect}
-        fitView
-        attributionPosition="bottom-right"
-      >
-        <Controls className="bg-white shadow-xl border-0 rounded-lg overflow-hidden" />
-        <MiniMap 
-          zoomable 
-          pannable 
-          className="bg-white shadow-xl rounded-lg overflow-hidden border-0"
-          nodeStrokeColor="#e2e8f0"
-          nodeColor="#f8fafc"
-          maskColor="rgba(240, 242, 245, 0.7)"
-        />
-        <Background color="#cbd5e1" gap={24} size={1} />
-      </ReactFlow>
-    </div>
+    <ReactFlowProvider>
+      <div className="w-full h-[800px] bg-slate-50/50 border rounded-2xl overflow-hidden shadow-2xl backdrop-blur-sm">
+        <ReactFlow
+          nodes={nodes}
+          edges={edges}
+          onNodesChange={onNodesChange}
+          onEdgesChange={onEdgesChange}
+          onConnect={onConnect}
+          fitView
+          attributionPosition="bottom-right"
+        >
+          <Controls className="bg-white shadow-xl border-0 rounded-lg overflow-hidden" />
+          <MiniMap 
+            zoomable 
+            pannable 
+            className="bg-white shadow-xl rounded-lg overflow-hidden border-0"
+            nodeStrokeColor="#e2e8f0"
+            nodeColor="#f8fafc"
+            maskColor="rgba(240, 242, 245, 0.7)"
+          />
+          <Background color="#cbd5e1" gap={24} size={1} />
+        </ReactFlow>
+      </div>
+    </ReactFlowProvider>
   );
 }
