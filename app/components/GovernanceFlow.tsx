@@ -18,10 +18,9 @@ import '@xyflow/react/dist/style.css';
 import { 
   ShieldCheck, 
   User, 
-  Shield, 
-  FileText, 
-  Lock, 
-  AlertCircle, 
+  Shield,
+  Lock,
+  AlertCircle,
   Archive,
   CheckCircle,
   Edit,
